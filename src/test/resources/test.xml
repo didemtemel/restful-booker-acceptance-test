@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test">
+
+    <test name="restful-booker-all-test-cases" preserve-order="false" parallel="classes" thread-count="20">
+
+        <classes>
+
+        </classes>
+
+    </test>
+
+</suite>
