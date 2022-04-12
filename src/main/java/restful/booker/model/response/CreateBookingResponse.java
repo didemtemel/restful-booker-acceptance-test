@@ -1,16 +1,16 @@
-package restful.booker.model;
+package restful.booker.model.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Bookingdate {
-    private String checkin;
-    private String checkout;
+public class CreateBookingResponse {
+
+    private Integer bookingid;
+    private BookingResponse booking;
 }

@@ -8,4 +8,6 @@ public class BookingService extends BaseService{
 
     public ReadableResponse getBooking(Integer id) { return getRequest("/booking/" + id); }
 
+    public ReadableResponse createBooking(String body) { return postRequest(body,"/booking"); }
+
 }
