@@ -30,8 +30,6 @@ target/
 *.iws
 *.iml
 *.ipr
-src/test/resources/exceltemplates/*
-!src/test/resources/exceltemplates/.gitkeep
 
 ### NetBeans ###
 /nbproject/private/
