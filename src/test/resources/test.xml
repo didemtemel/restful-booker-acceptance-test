@@ -4,6 +4,7 @@
     <test name="restful-booker-all-test-cases" preserve-order="false" parallel="classes" thread-count="20">
 
         <classes>
+            <class name="restful.booker.GetBookingIdsTest"/>
 
         </classes>
 
