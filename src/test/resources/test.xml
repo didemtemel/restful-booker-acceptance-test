@@ -5,6 +5,7 @@
 
         <classes>
             <class name="restful.booker.GetBookingIdsTest"/>
+            <class name="restful.booker.GetBookingTest"/>
 
         </classes>
 
