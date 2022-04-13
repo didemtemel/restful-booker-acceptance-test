@@ -14,7 +14,7 @@ public class CreateBookingTest extends Base{
         //Given: prepare requirements
         var createBookingRequest = CreateBookingSampleData.createBookingRequestBuilder().build();
 
-        //When: send update booking request
+        //When: send create booking request
         var readableResponse = bookingService.createBooking(gson.toJson(createBookingRequest));
         var bookingResponse = readableResponse.getResponse().as(CreateBookingResponse.class);
 
