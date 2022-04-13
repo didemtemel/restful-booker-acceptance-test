@@ -11,15 +11,22 @@ public class CreateBookingTest extends Base{
     @Test
     public void it_should_create_booking() {
 
-        var bookingSampleData = CreateBookingSampleData.createBookingRequestBuilder().build();
+        //Given: prepare requirements
+        var createBookingRequest = CreateBookingSampleData.createBookingRequestBuilder().build();
 
-        var readableResponse = bookingService.createBooking(gson.toJson(bookingSampleData));
-
+        //When: send update booking request
+        var readableResponse = bookingService.createBooking(gson.toJson(createBookingRequest));
         var bookingResponse = readableResponse.getResponse().as(CreateBookingResponse.class);
 
+        //Then: make assertions
         assertThat(readableResponse.getStatusCode()).isEqualTo(200);
-
-        assertThat(bookingResponse.getBooking().getFirstname()).isEqualTo(bookingSampleData.getFirstname());
+        assertThat(bookingResponse.getBooking().getFirstname()).isEqualTo(createBookingRequest.getFirstname());
+        assertThat(bookingResponse.getBooking().getLastname()).isEqualTo(createBookingRequest.getLastname());
+        assertThat(bookingResponse.getBooking().getTotalprice()).isEqualTo(createBookingRequest.getTotalprice());
+        assertThat(bookingResponse.getBooking().getDepositpaid()).isEqualTo(createBookingRequest.getDepositpaid());
+        assertThat(bookingResponse.getBooking().getBookingdates().getCheckin()).isEqualTo(createBookingRequest.getBookingdates().getCheckin());
+        assertThat(bookingResponse.getBooking().getBookingdates().getCheckout()).isEqualTo(createBookingRequest.getBookingdates().getCheckout());
+        assertThat(bookingResponse.getBooking().getAdditionalneeds()).isEqualTo(createBookingRequest.getAdditionalneeds());
 
 
     }
