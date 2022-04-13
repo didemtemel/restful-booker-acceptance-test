@@ -14,7 +14,9 @@ import static restful.booker.helper.Config.BOOKING_SERVICE_URL;
 
 public class BaseService {
     private static final String CONTENT_TYPE = "Content-Type";
-    private static final String APPLICATION_JSON = "application/json;charset=UTF-8";
+    private static final String ACCEPT = "Accept";
+    private static final String APPLICATION_JSON = "application/json";
+    private static final String COOKIE = "Cookie";
 
     private final RequestSpecification spec = new RequestSpecBuilder()
             .setBaseUri(BOOKING_SERVICE_URL)
@@ -76,6 +78,23 @@ public class BaseService {
         var response = given()
                 .spec(spec)
                 .header(CONTENT_TYPE, APPLICATION_JSON)
+                .when()
+                .body(body)
+                .put(endPoint)
+                .then()
+                .extract()
+                .response();
+
+        return new ReadableResponse(response);
+    }
+
+    protected ReadableResponse putRequest(String token, String body, String endPoint) {
+
+        var response = given()
+                .spec(spec)
+                .header(CONTENT_TYPE, APPLICATION_JSON)
+                .header(ACCEPT, APPLICATION_JSON)
+                .header(COOKIE, token)
                 .when()
                 .body(body)
                 .put(endPoint)

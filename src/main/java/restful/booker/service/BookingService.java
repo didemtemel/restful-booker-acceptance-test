@@ -10,4 +10,8 @@ public class BookingService extends BaseService{
 
     public ReadableResponse createBooking(String body) { return postRequest(body,"/booking"); }
 
+    public ReadableResponse updateBooking(String token, String body, Integer id) { return putRequest("token=" + token, body,"/booking/" + id); }
+
+    public ReadableResponse createToken(String body) { return postRequest( body,"/auth"); }
+
 }
