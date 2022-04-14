@@ -14,4 +14,7 @@ public class BookingService extends BaseService{
 
     public ReadableResponse createToken(String body) { return postRequest( body,"/auth"); }
 
+    public ReadableResponse partialUpdateBooking(String token, String body, Integer id) { return patchRequest("token=" + token, body,"/booking/" + id); }
+
+
 }

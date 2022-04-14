@@ -8,6 +8,7 @@
             <class name="restful.booker.GetBookingTest"/>
             <class name="restful.booker.CreateBookingTest"/>
             <class name="restful.booker.UpdateBookingTest"/>
+            <class name="restful.booker.PartialUpdateBookingTest"/>
 
         </classes>
 

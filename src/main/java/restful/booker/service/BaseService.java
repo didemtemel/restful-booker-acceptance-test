@@ -105,6 +105,23 @@ public class BaseService {
         return new ReadableResponse(response);
     }
 
+    protected ReadableResponse patchRequest(String token, String body, String endPoint) {
+
+        var response = given()
+                .spec(spec)
+                .header(CONTENT_TYPE, APPLICATION_JSON)
+                .header(ACCEPT, APPLICATION_JSON)
+                .header(COOKIE, token)
+                .when()
+                .body(body)
+                .patch(endPoint)
+                .then()
+                .extract()
+                .response();
+
+        return new ReadableResponse(response);
+    }
+
     protected ReadableResponse putRequest(String endPoint) {
 
         var response = given()
