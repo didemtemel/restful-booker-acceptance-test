@@ -122,6 +122,22 @@ public class BaseService {
         return new ReadableResponse(response);
     }
 
+    protected ReadableResponse deleteRequest(String token, String endPoint) {
+
+        var response = given()
+                .spec(spec)
+                .header(CONTENT_TYPE, APPLICATION_JSON)
+                .header(ACCEPT, APPLICATION_JSON)
+                .header(COOKIE, token)
+                .when()
+                .delete(endPoint)
+                .then()
+                .extract()
+                .response();
+
+        return new ReadableResponse(response);
+    }
+
     protected ReadableResponse putRequest(String endPoint) {
 
         var response = given()

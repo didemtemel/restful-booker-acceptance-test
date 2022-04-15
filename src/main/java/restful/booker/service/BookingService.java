@@ -16,5 +16,7 @@ public class BookingService extends BaseService{
 
     public ReadableResponse partialUpdateBooking(String token, String body, Integer id) { return patchRequest("token=" + token, body,"/booking/" + id); }
 
+    public ReadableResponse deleteBooking(String token, Integer id) { return deleteRequest("token=" + token,"/booking/" + id); }
+
 
 }
